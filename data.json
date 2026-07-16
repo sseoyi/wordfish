@@ -1,7 +1,17 @@
 {
   "version": 1,
-  "accumulatedFishCount": 0,
-  "accumulatedFish": [],
+  "accumulatedFishCount": 9,
+  "accumulatedFish": [
+    "🐬",
+    "🐟",
+    "🐬",
+    "🐡",
+    "🦈",
+    "🦈",
+    "🦈",
+    "🪼",
+    "🐡"
+  ],
   "completedLessons": [],
-  "updatedAt": "2026-07-16T05:12:50.669Z"
+  "updatedAt": "2026-07-16T12:49:05.280Z"
 }
