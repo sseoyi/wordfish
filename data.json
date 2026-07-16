@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "accumulatedFishCount": 19,
+  "accumulatedFishCount": 28,
   "accumulatedFish": [
     "🐬",
     "🐟",
@@ -20,8 +20,19 @@
     "🐠",
     "🐳",
     "🪼",
-    "🪼"
+    "🪼",
+    "🐠",
+    "🐠",
+    "🐟",
+    "🐠",
+    "🐙",
+    "🐡",
+    "🐳",
+    "🦐",
+    "🦀"
   ],
-  "completedLessons": [],
-  "updatedAt": "2026-07-16T13:00:08.217Z"
+  "completedLessons": [
+    "Pets"
+  ],
+  "updatedAt": "2026-07-16T13:03:02.076Z"
 }
