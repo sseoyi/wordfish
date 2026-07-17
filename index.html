@@ -588,6 +588,90 @@
     @keyframes bubbleUp { from { transform: translateY(0) scale(.7); opacity: 0; } 15% { opacity: .8; } to { transform: translateY(-340px) scale(1.15); opacity: 0; } }
     .tank-note { margin: 22px 0 0; color: var(--muted); text-align: center; font-weight: 900; }
 
+
+    .tank-toolbar {
+      display: flex; align-items: center; justify-content: space-between; gap: 12px;
+      margin: -4px 0 15px; padding: 12px 14px; border: 2px solid #f2df9b;
+      border-radius: 18px; background: linear-gradient(135deg, #fffbe8, #fff3bd);
+      box-shadow: 0 5px 0 #f3e3a8;
+    }
+    .coin-balance {
+      display: inline-flex; align-items: center; gap: 8px; min-height: 46px; padding: 8px 13px;
+      border-radius: 15px; color: #775300; background: rgba(255,255,255,.8); font-size: 16px; font-weight: 1000;
+    }
+    .coin-balance strong { color: #a36d00; font-size: 24px; }
+    .shop-open-btn { min-height: 46px; padding: 9px 15px; border: 0; border-radius: 15px; color: #fff; background: #8b6cf2; box-shadow: 0 5px 0 #6548c5; font-weight: 1000; cursor: pointer; }
+    .shop-open-btn:active { transform: translateY(3px); box-shadow: 0 2px 0 #6548c5; }
+    .tank-action-status { min-height: 30px; margin: 12px 0 0; color: var(--blue-dark); text-align: center; font-size: 14px; font-weight: 1000; }
+    .tank-action-status.good { color: #1f8965; }
+    .tank-action-status.bad { color: #b4483d; }
+    .tank-fish { cursor: pointer; user-select: none; -webkit-user-select: none; }
+    .tank-fish:hover { filter: drop-shadow(0 7px 5px rgba(18,85,126,.28)) brightness(1.08); }
+    .tank-fish.selling { pointer-events: none; animation: fishSold .38s ease-in forwards !important; }
+    @keyframes fishSold { to { opacity: 0; transform: translateY(-55px) rotate(25deg) scale(.2); } }
+    .sale-coin {
+      position: fixed; z-index: 10050; pointer-events: none; font-size: 34px; line-height: 1;
+      filter: drop-shadow(0 5px 4px rgba(80,55,0,.22)); animation: coinFly .7s ease-out forwards;
+    }
+    @keyframes coinFly { 0% { opacity: 0; transform: translate(-50%,-20%) scale(.5) rotate(-30deg); } 25% { opacity: 1; } 100% { opacity: 0; transform: translate(-50%,-155%) scale(1.2) rotate(35deg); } }
+
+    .tank-decor-layer { position: absolute; z-index: 2; inset: 0; pointer-events: none; }
+    .tank-decor-item { position: absolute; bottom: var(--bottom); left: var(--left); font-size: var(--decor-size); line-height: 1; transform: rotate(var(--rotate)); filter: drop-shadow(0 5px 4px rgba(20,45,75,.2)); }
+    .tank-ground { position: absolute; z-index: 1; left: -2%; right: -2%; bottom: -2px; height: 65px; border-radius: 55% 55% 0 0; }
+    .fish-tank.theme-classic { border-color: #b9dbf5; border-top-color: #d7edff; background: linear-gradient(180deg, #d9f5ff 0%, #89d7f4 43%, #4db1df 100%); box-shadow: inset 0 10px 0 rgba(255,255,255,.55), inset 0 -20px 40px rgba(20,103,158,.12), 0 13px 0 #e7f2fa; }
+    .fish-tank.theme-classic .tank-ground { background: radial-gradient(circle at 12px 12px, #f9d59d 0 7px, transparent 8px) 0 0/30px 25px, linear-gradient(#f2c785,#dcae6b); }
+    .fish-tank.theme-galaxy { border-color: #8d7ee8; border-top-color: #c3baff; background: radial-gradient(circle at 14% 18%, #fff 0 2px, transparent 3px), radial-gradient(circle at 74% 28%, #c8f5ff 0 2px, transparent 3px), radial-gradient(circle at 45% 64%, #f9c8ff 0 2px, transparent 3px), linear-gradient(180deg, #120a42 0%, #351777 52%, #160d42 100%); background-size: 92px 92px, 130px 130px, 155px 155px, auto; box-shadow: inset 0 10px 0 rgba(255,255,255,.22), inset 0 -22px 50px rgba(0,0,0,.28), 0 13px 0 #d9d4ff; }
+    .fish-tank.theme-galaxy .tank-ground { background: radial-gradient(circle at 14px 12px, #8270c8 0 7px, transparent 8px) 0 0/31px 24px, linear-gradient(#4c3f82,#271c58); }
+    .fish-tank.theme-desert { border-color: #efc27a; border-top-color: #ffe4aa; background: linear-gradient(180deg, #ffe4aa 0%, #efbe79 44%, #c88c56 100%); box-shadow: inset 0 10px 0 rgba(255,255,255,.35), inset 0 -20px 45px rgba(105,61,24,.18), 0 13px 0 #f8e1b8; }
+    .fish-tank.theme-desert .tank-ground { height: 78px; background: radial-gradient(circle at 12px 12px, #e9bb75 0 8px, transparent 9px) 0 0/33px 27px, linear-gradient(#f5cf8f,#cf9353); }
+    .fish-tank.theme-ocean { border-color: #497aa7; border-top-color: #7fb1d8; background: linear-gradient(180deg, #246b9c 0%, #0b4678 45%, #06284c 100%); box-shadow: inset 0 10px 0 rgba(255,255,255,.18), inset 0 -24px 50px rgba(0,0,0,.3), 0 13px 0 #c3d7e8; }
+    .fish-tank.theme-ocean .tank-ground { background: radial-gradient(circle at 12px 12px, #5d7184 0 7px, transparent 8px) 0 0/31px 25px, linear-gradient(#526d7e,#2f4857); }
+    .fish-tank.theme-pirate { border-color: #8e6a3d; border-top-color: #d2aa70; background: linear-gradient(180deg, #63d3d1 0%, #168a9f 47%, #07566f 100%); box-shadow: inset 0 10px 0 rgba(255,255,255,.32), inset 0 -22px 46px rgba(0,45,65,.25), 0 13px 0 #dfc7a3; }
+    .fish-tank.theme-pirate .tank-ground { background: radial-gradient(circle at 13px 12px, #d5b277 0 8px, transparent 9px) 0 0/32px 25px, linear-gradient(#c69a5b,#8a5a2d); }
+    .fish-tank.theme-spider { border-color: #71657d; border-top-color: #aaa0b5; background: radial-gradient(circle at 50% 30%, rgba(255,255,255,.09), transparent 45%), linear-gradient(180deg, #81728d 0%, #4c4058 46%, #251f30 100%); box-shadow: inset 0 10px 0 rgba(255,255,255,.16), inset 0 -22px 50px rgba(0,0,0,.3), 0 13px 0 #d5cfdb; }
+    .fish-tank.theme-spider .tank-ground { background: radial-gradient(circle at 12px 12px, #69606f 0 7px, transparent 8px) 0 0/30px 24px, linear-gradient(#5d5562,#37303b); }
+    .fish-tank.theme-zombie { border-color: #648f5e; border-top-color: #9dc897; background: radial-gradient(circle at 20% 25%, rgba(204,255,132,.18), transparent 20%), linear-gradient(180deg, #9fcf72 0%, #548c51 47%, #24452f 100%); box-shadow: inset 0 10px 0 rgba(255,255,255,.2), inset 0 -22px 50px rgba(10,40,15,.28), 0 13px 0 #c9ddc5; }
+    .fish-tank.theme-zombie .tank-ground { background: radial-gradient(circle at 12px 12px, #65745a 0 7px, transparent 8px) 0 0/31px 25px, linear-gradient(#667456,#394632); }
+
+    .shop-modal-card { width: min(980px, 100%); }
+    .shop-balance-row { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-bottom: 16px; }
+    .shop-grid { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 14px; }
+    .shop-card { display: grid; gap: 11px; padding: 13px; border: 3px solid #e0e9f5; border-radius: 22px; background: #fff; box-shadow: 0 7px 0 #edf2f8; }
+    .shop-card.owned { border-color: #8dddbf; box-shadow: 0 7px 0 #ddf7ed; }
+    .shop-card.selected { border-color: #8daef2; box-shadow: 0 7px 0 #dfe9ff; background: #f8fbff; }
+    .tank-theme-preview { position: relative; height: 125px; overflow: hidden; border: 7px solid #b9dbf5; border-radius: 19px 19px 27px 27px; }
+    .tank-theme-preview::after { content: "🐠"; position: absolute; top: 35%; left: 40%; font-size: 34px; animation: previewFish 2.8s ease-in-out infinite; }
+    @keyframes previewFish { 50% { transform: translateX(24px) translateY(-6px); } }
+    .tank-theme-preview .preview-decor { position: absolute; inset: auto 8px 9px; display: flex; justify-content: space-between; align-items: end; font-size: 31px; }
+    .tank-theme-preview.theme-classic { background: linear-gradient(180deg,#d9f5ff,#4db1df); }
+    .tank-theme-preview.theme-galaxy { border-color:#8d7ee8; background: radial-gradient(circle at 15% 20%,#fff 0 2px,transparent 3px), linear-gradient(180deg,#120a42,#351777); }
+    .tank-theme-preview.theme-desert { border-color:#efc27a; background: linear-gradient(180deg,#ffe4aa,#c88c56); }
+    .tank-theme-preview.theme-ocean { border-color:#497aa7; background: linear-gradient(180deg,#246b9c,#06284c); }
+    .tank-theme-preview.theme-pirate { border-color:#8e6a3d; background: linear-gradient(180deg,#63d3d1,#07566f); }
+    .tank-theme-preview.theme-spider { border-color:#71657d; background: linear-gradient(180deg,#81728d,#251f30); }
+    .tank-theme-preview.theme-zombie { border-color:#648f5e; background: linear-gradient(180deg,#9fcf72,#24452f); }
+    .shop-card h3 { margin: 0; font-size: 20px; }
+    .shop-card p { min-height: 42px; margin: 0; color: var(--muted); font-size: 13px; line-height: 1.45; font-weight: 800; }
+    .shop-price { display: flex; justify-content: space-between; align-items: center; gap: 8px; font-weight: 1000; }
+    .shop-price span { color: #9a6800; }
+    .shop-buy-btn { min-height: 47px; border: 0; border-radius: 14px; color: #fff; background: var(--blue); box-shadow: 0 4px 0 var(--blue-dark); font-weight: 1000; cursor: pointer; }
+    .shop-buy-btn.owned { color: #167759; background: #dcfff2; box-shadow: 0 4px 0 #a9e7d1; }
+    .shop-buy-btn.selected { color: #fff; background: var(--mint-dark); box-shadow: 0 4px 0 #21765d; }
+    .shop-buy-btn:disabled { cursor: not-allowed; opacity: .62; }
+    .shop-status { min-height: 36px; margin: 15px 0 0; padding: 9px 12px; border-radius: 13px; color: var(--muted); background: #f4f7fb; text-align: center; font-weight: 900; }
+    .shop-status.good { color:#237c60; background:#eafff6; }
+    .shop-status.bad { color:#b4483d; background:#fff0ed; }
+
+    @media (max-width: 760px) {
+      .tank-toolbar, .shop-balance-row { align-items: stretch; flex-direction: column; }
+      .shop-open-btn { width: 100%; }
+      .shop-grid { grid-template-columns: repeat(2, minmax(0,1fr)); }
+    }
+    @media (max-width: 480px) {
+      .shop-grid { grid-template-columns: 1fr; }
+      .tank-theme-preview { height: 115px; }
+    }
+
     .data-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 13px; }
     .data-grid label, .token-label { display: grid; gap: 7px; color: var(--ink); font-size: 14px; font-weight: 1000; }
     .data-grid input, .token-label input { width: 100%; min-height: 49px; padding: 10px 13px; border: 2px solid #d9e6f5; border-radius: 14px; color: var(--ink); background: #fbfdff; font: inherit; font-weight: 800; outline: none; }
@@ -759,7 +843,7 @@
     .letter-nav:hover { transform: translateY(-4px); }
     .letter-nav:active { transform: translateY(3px); box-shadow: 0 2px 0 #e4b729; }
     .letter-page {
-      position: relative; min-height: 460px; display: grid; grid-template-rows: minmax(210px, auto) auto auto;
+      position: relative; min-height: 460px; display: grid; grid-template-rows: minmax(170px, auto) auto auto;
       place-items: center; align-content: center; row-gap: 3px; padding: 36px 28px 26px; border: 4px solid #f2e1ae;
       border-radius: 38px; background: rgba(255,255,255,.95); box-shadow: var(--shadow); text-align: center; overflow: hidden;
     }
@@ -768,8 +852,8 @@
     .letter-page::after { right: 8%; bottom: 10%; transform: rotate(16deg); color: #9edcf6; }
     .playwrite-vn { font-family: "Playwrite VN", cursive; font-weight: 350; }
     .letter-character {
-      width: 100%; min-height: 210px; display: grid; place-items: center; padding: 34px 12px 0;
-      color: var(--blue-dark); font-size: clamp(82px, 14vw, 148px); line-height: 1.9;
+      width: 100%; min-height: 170px; display: grid; place-items: center; padding: 20px 12px 0;
+      color: var(--blue-dark); font-size: clamp(82px, 14vw, 148px); line-height: 1.35;
     }
     .letter-example {
       max-width: 100%; padding: 0 10px; color: var(--ink); font-size: clamp(23px, 4.3vw, 40px);
@@ -790,7 +874,7 @@
       .math-journey-progress { width: min(320px, calc(100% - 36px)); }
       .letters-stage { grid-template-columns: 68px minmax(0,1fr) 68px; gap: 10px; padding: 24px 12px; }
       .letter-nav { width: 62px; height: 68px; border-radius: 21px; font-size: 31px; }
-      .letter-character { font-size: clamp(78px, 18vw, 128px); min-height: 190px; padding-top: 30px; line-height: 1.75; }
+      .letter-character { font-size: clamp(78px, 18vw, 128px); min-height: 155px; }
     }
     @media (max-width: 540px) {
       .adventure-card { min-height: 165px; grid-template-columns: 1fr 78px; padding: 20px; }
@@ -806,8 +890,8 @@
       .math-result-actions button { width: 100%; }
       .letters-stage { min-height: 590px; grid-template-columns: 55px minmax(0,1fr) 55px; padding: 20px 7px; }
       .letter-nav { width: 50px; height: 60px; font-size: 27px; border-radius: 18px; }
-      .letter-page { min-height: 475px; grid-template-rows: minmax(175px, auto) auto auto; padding: 32px 8px 22px; border-radius: 30px; }
-      .letter-character { min-height: 175px; padding-top: 26px; font-size: clamp(70px, 24vw, 105px); line-height: 1.75; }
+      .letter-page { min-height: 475px; grid-template-rows: minmax(145px, auto) auto auto; padding: 32px 8px 22px; border-radius: 30px; }
+      .letter-character { min-height: 145px; padding-top: 18px; font-size: clamp(70px, 24vw, 105px); line-height: 1.4; }
       .letter-example { padding: 0 4px; font-size: clamp(20px, 6.4vw, 30px); line-height: 1.65; }
       .letter-emoji { font-size: clamp(52px, 16vw, 68px); }
     }
@@ -1050,16 +1134,35 @@
         <div class="modal-icon">🐠</div>
         <div><h2 id="tankTitle">My Fish Tank</h2><p><strong id="tankFishCount">0</strong> happy fish collected</p></div>
       </div>
-      <div class="fish-tank" id="fishTank" aria-label="Animated fish tank">
+      <div class="tank-toolbar">
+        <div class="coin-balance" aria-label="Coin balance">🪙 <strong id="tankCoinCount">0</strong> coins</div>
+        <button class="shop-open-btn" id="openShopBtn" type="button">🛍️ Tank Shop</button>
+      </div>
+      <div class="fish-tank theme-classic" id="fishTank" aria-label="Animated fish tank. Tap a fish to sell it for 5 coins.">
         <div class="tank-bubbles" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
         <div class="tank-fish-layer" id="tankFishLayer"></div>
-        <div class="tank-plant plant-one" aria-hidden="true">🌿</div>
-        <div class="tank-plant plant-two" aria-hidden="true">🌱</div>
-        <div class="tank-castle" aria-hidden="true">🏰</div>
-        <div class="tank-gravel" aria-hidden="true"></div>
+        <div class="tank-decor-layer" id="tankDecorLayer" aria-hidden="true"></div>
+        <div class="tank-ground" aria-hidden="true"></div>
         <div class="tank-empty" id="tankEmpty">Learn English or play Math Ocean to add your first fish! 🐟</div>
       </div>
+      <div class="tank-action-status" id="tankActionStatus" aria-live="polite">Tap a fish to sell it for 5 coins. 🪙</div>
       <p class="tank-note" id="tankNote">English lessons add fish once; Math Ocean gives unlimited fish.</p>
+    </section>
+  </div>
+
+  <div class="modal-backdrop" id="shopModal" role="dialog" aria-modal="true" aria-labelledby="shopTitle">
+    <section class="modal-card shop-modal-card">
+      <button class="modal-close" id="closeShopBtn" type="button" aria-label="Close tank shop">✕</button>
+      <div class="modal-heading">
+        <div class="modal-icon">🛍️</div>
+        <div><h2 id="shopTitle">Tank Shop</h2><p>Buy a new home for your fish. Every special tank costs 500 coins.</p></div>
+      </div>
+      <div class="shop-balance-row">
+        <div class="coin-balance">🪙 <strong id="shopCoinCount">0</strong> coins</div>
+        <button class="small-btn" id="backToTankBtn" type="button">🐠 Back to Fish Tank</button>
+      </div>
+      <div class="shop-grid" id="tankShopGrid"></div>
+      <div class="shop-status" id="shopStatus" aria-live="polite">Sell fish in your tank to earn coins.</div>
     </section>
   </div>
 
@@ -1082,6 +1185,7 @@
       <p class="security-note">The latest token is saved in this browser so it remains after refresh. It is sent only to <strong>api.github.com</strong> when you publish. Use a fine-grained token with Contents read/write access to this repository.</p>
       <div class="data-preview">
         <div><span>Total fish</span><strong id="dataFishCount">0</strong></div>
+        <div><span>Coins</span><strong id="dataCoinCount">0</strong></div>
         <div><span>Completed lessons</span><strong id="dataCompletedCount">0</strong></div>
       </div>
       <div class="publish-status" id="publishStatus" aria-live="polite">Ready.</div>
@@ -1092,7 +1196,7 @@
     </section>
   </div>
 
-  <script id="wordfish-default-data" type="application/json">{"version":1,"accumulatedFishCount":0,"accumulatedFish":[],"completedLessons":[],"updatedAt":""}</script>
+  <script id="wordfish-default-data" type="application/json">{"version":2,"accumulatedFishCount":0,"accumulatedFish":[],"completedLessons":[],"coins":0,"ownedTanks":["classic"],"selectedTank":"classic","updatedAt":""}</script>
 
   <script>
     const TOPICS = [{"name":"Colors","emoji":"🎨","words":[["red","màu đỏ","🔴"],["blue","màu xanh dương","🔵"],["yellow","màu vàng","🟡"],["green","màu xanh lá","🟢"],["orange","màu cam","🟠"],["purple","màu tím","🟣"],["pink","màu hồng","🩷"],["black","màu đen","⚫"],["white","màu trắng","⚪"]]},{"name":"Numbers","emoji":"🔢","words":[["one","một","1️⃣"],["two","hai","2️⃣"],["three","ba","3️⃣"],["four","bốn","4️⃣"],["five","năm","5️⃣"],["six","sáu","6️⃣"],["seven","bảy","7️⃣"],["eight","tám","8️⃣"],["nine","chín","9️⃣"],["ten","mười","🔟"]]},{"name":"Shapes","emoji":"🔷","words":[["circle","hình tròn","⚪"],["square","hình vuông","🟦"],["triangle","hình tam giác","🔺"],["rectangle","hình chữ nhật","▭"],["star","ngôi sao","⭐"],["heart","trái tim","❤️"],["oval","hình bầu dục","🥚"],["diamond","hình thoi","🔶"]]},{"name":"Family","emoji":"👨‍👩‍👧‍👦","words":[["mother","mẹ","👩"],["father","bố","👨"],["sister","chị / em gái","👧"],["brother","anh / em trai","👦"],["baby","em bé","👶"],["grandmother","bà","👵"],["grandfather","ông","👴"],["family","gia đình","👨‍👩‍👧‍👦"]]},{"name":"Body","emoji":"🧍","words":[["head","đầu","🙂"],["hand","bàn tay","✋"],["arm","cánh tay","💪"],["leg","chân","🦵"],["foot","bàn chân","🦶"],["finger","ngón tay","☝️"],["tummy","bụng","🫄"],["back","lưng","🔙"]]},{"name":"Face","emoji":"😊","words":[["eyes","mắt","👀"],["ears","tai","👂"],["nose","mũi","👃"],["mouth","miệng","👄"],["teeth","răng","🦷"],["hair","tóc","💇"],["cheek","má","😊"],["chin","cằm","🧔"]]},{"name":"Clothes","emoji":"👕","words":[["shirt","áo sơ mi","👕"],["dress","váy liền","👗"],["trousers","quần dài","👖"],["shorts","quần short","🩳"],["skirt","chân váy","👗"],["socks","tất","🧦"],["shoes","giày","👟"],["hat","mũ","🧢"]]},{"name":"Fruit","emoji":"🍓","words":[["apple","quả táo","🍎"],["banana","quả chuối","🍌"],["orange","quả cam","🍊"],["mango","quả xoài","🥭"],["watermelon","quả dưa hấu","🍉"],["grapes","nho","🍇"],["strawberry","dâu tây","🍓"],["pineapple","quả dứa","🍍"],["pear","quả lê","🍐"]]},{"name":"Vegetables","emoji":"🥕","words":[["carrot","cà rốt","🥕"],["tomato","cà chua","🍅"],["potato","khoai tây","🥔"],["corn","bắp / ngô","🌽"],["cucumber","dưa leo","🥒"],["broccoli","bông cải xanh","🥦"],["onion","hành tây","🧅"],["mushroom","nấm","🍄"]]},{"name":"Food","emoji":"🍽️","words":[["rice","cơm","🍚"],["bread","bánh mì","🍞"],["noodles","mì","🍜"],["egg","trứng","🥚"],["chicken","thịt gà","🍗"],["fish","cá","🐟"],["soup","súp","🥣"],["pizza","bánh pizza","🍕"]]},{"name":"Drinks","emoji":"🥤","words":[["water","nước","💧"],["milk","sữa","🥛"],["juice","nước ép","🧃"],["tea","trà","🍵"],["hot chocolate","sô-cô-la nóng","☕"],["smoothie","sinh tố","🥤"],["lemonade","nước chanh","🍋"],["coconut water","nước dừa","🥥"]]},{"name":"Breakfast","emoji":"🥞","words":[["cereal","ngũ cốc","🥣"],["pancake","bánh kếp","🥞"],["toast","bánh mì nướng","🍞"],["yogurt","sữa chua","🥛"],["sandwich","bánh mì kẹp","🥪"],["porridge","cháo","🥣"],["sausage","xúc xích","🌭"],["cheese","phô mai","🧀"]]},{"name":"Sweets","emoji":"🍭","words":[["cake","bánh kem","🎂"],["cookie","bánh quy","🍪"],["candy","kẹo","🍬"],["ice cream","kem","🍦"],["chocolate","sô-cô-la","🍫"],["cupcake","bánh cupcake","🧁"],["donut","bánh vòng","🍩"],["lollipop","kẹo mút","🍭"]]},{"name":"Pets","emoji":"🐶","words":[["dog","chó","🐶"],["cat","mèo","🐱"],["fish","cá","🐠"],["rabbit","thỏ","🐰"],["hamster","chuột hamster","🐹"],["turtle","rùa","🐢"],["bird","chim","🐦"],["puppy","chó con","🐕"]]},{"name":"Farm Animals","emoji":"🚜","words":[["cow","bò","🐄"],["pig","heo","🐷"],["sheep","cừu","🐑"],["goat","dê","🐐"],["horse","ngựa","🐴"],["chicken","gà","🐔"],["duck","vịt","🦆"],["donkey","lừa","🫏"]]},{"name":"Wild Animals","emoji":"🦁","words":[["lion","sư tử","🦁"],["tiger","hổ","🐯"],["elephant","voi","🐘"],["monkey","khỉ","🐵"],["giraffe","hươu cao cổ","🦒"],["zebra","ngựa vằn","🦓"],["bear","gấu","🐻"],["panda","gấu trúc","🐼"]]},{"name":"Sea Animals","emoji":"🐬","words":[["dolphin","cá heo","🐬"],["whale","cá voi","🐳"],["shark","cá mập","🦈"],["octopus","bạch tuộc","🐙"],["crab","cua","🦀"],["starfish","sao biển","⭐"],["seal","hải cẩu","🦭"],["jellyfish","sứa","🪼"]]},{"name":"Birds","emoji":"🦜","words":[["parrot","vẹt","🦜"],["owl","cú","🦉"],["eagle","đại bàng","🦅"],["penguin","chim cánh cụt","🐧"],["flamingo","hồng hạc","🦩"],["swan","thiên nga","🦢"],["peacock","công","🦚"],["sparrow","chim sẻ","🐦"]]},{"name":"Little Creatures","emoji":"🦋","words":[["butterfly","bướm","🦋"],["bee","ong","🐝"],["ant","kiến","🐜"],["ladybug","bọ rùa","🐞"],["spider","nhện","🕷️"],["grasshopper","châu chấu","🦗"],["caterpillar","sâu bướm","🐛"],["snail","ốc sên","🐌"]]},{"name":"Toys","emoji":"🧸","words":[["ball","quả bóng","⚽"],["doll","búp bê","🪆"],["teddy bear","gấu bông","🧸"],["blocks","khối xếp hình","🧱"],["kite","diều","🪁"],["robot","rô-bốt","🤖"],["puzzle","trò ghép hình","🧩"],["yo-yo","con quay yo-yo","🪀"]]},{"name":"School Things","emoji":"🎒","words":[["book","sách","📘"],["pencil","bút chì","✏️"],["pen","bút mực","🖊️"],["eraser","cục tẩy","🧼"],["ruler","thước kẻ","📏"],["bag","cặp sách","🎒"],["notebook","vở","📓"],["scissors","kéo","✂️"]]},{"name":"Classroom","emoji":"🏫","words":[["teacher","giáo viên","🧑‍🏫"],["student","học sinh","🧒"],["desk","bàn học","🪑"],["chair","ghế","🪑"],["board","bảng","🟩"],["door","cửa ra vào","🚪"],["window","cửa sổ","🪟"],["clock","đồng hồ","🕒"]]},{"name":"Actions","emoji":"🏃","words":[["run","chạy","🏃"],["jump","nhảy","🤸"],["walk","đi bộ","🚶"],["sit","ngồi","🪑"],["stand","đứng","🧍"],["clap","vỗ tay","👏"],["dance","nhảy múa","💃"],["sing","hát","🎤"]]},{"name":"Everyday Actions","emoji":"📖","words":[["eat","ăn","😋"],["drink","uống","🥤"],["sleep","ngủ","😴"],["read","đọc","📖"],["write","viết","✍️"],["draw","vẽ","🖍️"],["listen","lắng nghe","👂"],["look","nhìn","👀"]]},{"name":"Feelings","emoji":"🥰","words":[["happy","vui","😊"],["sad","buồn","😢"],["angry","giận dữ","😠"],["scared","sợ hãi","😨"],["tired","mệt","🥱"],["excited","hào hứng","🤩"],["surprised","ngạc nhiên","😮"],["calm","bình tĩnh","😌"]]},{"name":"Opposites","emoji":"↔️","words":[["big","to","🐘"],["small","nhỏ","🐭"],["hot","nóng","🔥"],["cold","lạnh","🧊"],["fast","nhanh","🚀"],["slow","chậm","🐌"],["up","lên","⬆️"],["down","xuống","⬇️"]]},{"name":"Weather","emoji":"🌤️","words":[["sunny","có nắng","☀️"],["rainy","có mưa","🌧️"],["cloudy","nhiều mây","☁️"],["windy","có gió","🌬️"],["snowy","có tuyết","🌨️"],["stormy","có bão","⛈️"],["hot","nóng","🥵"],["cold","lạnh","🥶"]]},{"name":"Seasons","emoji":"🍂","words":[["spring","mùa xuân","🌸"],["summer","mùa hè","☀️"],["autumn","mùa thu","🍂"],["winter","mùa đông","❄️"],["warm","ấm áp","🌤️"],["cool","mát mẻ","🍃"],["flower","hoa","🌷"],["snow","tuyết","☃️"]]},{"name":"Nature","emoji":"🌳","words":[["sun","mặt trời","☀️"],["moon","mặt trăng","🌙"],["star","ngôi sao","⭐"],["sky","bầu trời","🌌"],["cloud","đám mây","☁️"],["tree","cây","🌳"],["flower","hoa","🌸"],["mountain","núi","⛰️"]]},{"name":"Garden","emoji":"🌻","words":[["grass","cỏ","🌱"],["leaf","lá","🍃"],["seed","hạt giống","🌰"],["plant","cây trồng","🪴"],["rose","hoa hồng","🌹"],["bee","ong","🐝"],["butterfly","bướm","🦋"],["watering can","bình tưới cây","🚿"]]},{"name":"Home","emoji":"🏠","words":[["house","ngôi nhà","🏠"],["roof","mái nhà","🏡"],["wall","bức tường","🧱"],["floor","sàn nhà","🟫"],["stairs","cầu thang","🪜"],["garden","khu vườn","🌳"],["gate","cổng","🚧"],["key","chìa khóa","🔑"]]},{"name":"Bedroom","emoji":"🛏️","words":[["bed","giường","🛏️"],["pillow","gối","🛌"],["blanket","chăn","🧣"],["lamp","đèn","🪔"],["wardrobe","tủ quần áo","🚪"],["mirror","gương","🪞"],["teddy bear","gấu bông","🧸"],["alarm clock","đồng hồ báo thức","⏰"]]},{"name":"Bathroom","emoji":"🛁","words":[["bath","bồn tắm","🛁"],["shower","vòi sen","🚿"],["toilet","bồn cầu","🚽"],["sink","bồn rửa","🧼"],["soap","xà phòng","🧼"],["towel","khăn tắm","🧻"],["toothbrush","bàn chải đánh răng","🪥"],["toothpaste","kem đánh răng","🦷"]]},{"name":"Kitchen","emoji":"🍳","words":[["fridge","tủ lạnh","🧊"],["oven","lò nướng","♨️"],["stove","bếp","🔥"],["plate","đĩa","🍽️"],["bowl","bát","🥣"],["cup","cốc","☕"],["spoon","thìa","🥄"],["fork","nĩa","🍴"]]},{"name":"Living Room","emoji":"🛋️","words":[["sofa","ghế sofa","🛋️"],["television","tivi","📺"],["table","cái bàn","🪑"],["chair","cái ghế","🪑"],["rug","thảm","🟫"],["picture","bức tranh","🖼️"],["plant","chậu cây","🪴"],["fan","quạt","🪭"]]},{"name":"Playground","emoji":"🛝","words":[["slide","cầu trượt","🛝"],["swing","xích đu","🎠"],["seesaw","bập bênh","⚖️"],["sandbox","hộp cát","🏖️"],["ladder","cái thang","🪜"],["ball","quả bóng","⚽"],["bench","ghế dài","🪑"],["playground","sân chơi","🛝"]]},{"name":"Transport","emoji":"🚌","words":[["car","ô tô","🚗"],["bus","xe buýt","🚌"],["bicycle","xe đạp","🚲"],["train","tàu hỏa","🚆"],["airplane","máy bay","✈️"],["boat","thuyền","⛵"],["taxi","xe taxi","🚕"],["motorcycle","xe máy","🏍️"]]},{"name":"Town","emoji":"🏙️","words":[["school","trường học","🏫"],["hospital","bệnh viện","🏥"],["park","công viên","🌳"],["library","thư viện","📚"],["bank","ngân hàng","🏦"],["post office","bưu điện","📮"],["police station","đồn cảnh sát","🚓"],["fire station","trạm cứu hỏa","🚒"]]},{"name":"Jobs","emoji":"🧑‍🚒","words":[["doctor","bác sĩ","🧑‍⚕️"],["teacher","giáo viên","🧑‍🏫"],["farmer","nông dân","🧑‍🌾"],["chef","đầu bếp","🧑‍🍳"],["firefighter","lính cứu hỏa","🧑‍🚒"],["police officer","cảnh sát","👮"],["pilot","phi công","🧑‍✈️"],["singer","ca sĩ","🧑‍🎤"]]},{"name":"Sports","emoji":"⚽","words":[["football","bóng đá","⚽"],["basketball","bóng rổ","🏀"],["tennis","quần vợt","🎾"],["swimming","bơi lội","🏊"],["running","chạy bộ","🏃"],["cycling","đạp xe","🚴"],["baseball","bóng chày","⚾"],["badminton","cầu lông","🏸"]]},{"name":"Music","emoji":"🎵","words":[["guitar","đàn ghi-ta","🎸"],["piano","đàn piano","🎹"],["drum","trống","🥁"],["violin","đàn vi-ô-lông","🎻"],["trumpet","kèn trumpet","🎺"],["microphone","micro","🎤"],["song","bài hát","🎶"],["music","âm nhạc","🎵"]]},{"name":"Daily Routine","emoji":"⏰","words":[["wake up","thức dậy","⏰"],["brush teeth","đánh răng","🪥"],["wash face","rửa mặt","🧼"],["get dressed","mặc quần áo","👕"],["eat breakfast","ăn sáng","🥞"],["go to school","đi học","🏫"],["go home","về nhà","🏠"],["go to bed","đi ngủ","🛏️"]]},{"name":"Time","emoji":"🕒","words":[["morning","buổi sáng","🌅"],["afternoon","buổi chiều","🌤️"],["evening","buổi tối","🌆"],["night","ban đêm","🌙"],["today","hôm nay","📅"],["tomorrow","ngày mai","➡️"],["yesterday","hôm qua","⬅️"],["clock","đồng hồ","🕒"]]},{"name":"Days","emoji":"📅","words":[["Monday","thứ Hai","1️⃣"],["Tuesday","thứ Ba","2️⃣"],["Wednesday","thứ Tư","3️⃣"],["Thursday","thứ Năm","4️⃣"],["Friday","thứ Sáu","5️⃣"],["Saturday","thứ Bảy","6️⃣"],["Sunday","Chủ nhật","7️⃣"],["weekend","cuối tuần","🎉"]]},{"name":"Birthday","emoji":"🎂","words":[["birthday","sinh nhật","🎂"],["cake","bánh kem","🍰"],["candle","nến","🕯️"],["balloon","bóng bay","🎈"],["present","quà tặng","🎁"],["party","bữa tiệc","🥳"],["party hat","mũ tiệc","🥳"],["card","thiệp","💌"]]},{"name":"Beach","emoji":"🏖️","words":[["beach","bãi biển","🏖️"],["sand","cát","⏳"],["sea","biển","🌊"],["shell","vỏ sò","🐚"],["bucket","cái xô","🪣"],["spade","xẻng nhỏ","🛠️"],["umbrella","ô / dù","⛱️"],["swimsuit","đồ bơi","🩱"]]},{"name":"Space","emoji":"🚀","words":[["sun","mặt trời","☀️"],["moon","mặt trăng","🌙"],["star","ngôi sao","⭐"],["planet","hành tinh","🪐"],["Earth","Trái Đất","🌍"],["rocket","tên lửa","🚀"],["astronaut","phi hành gia","🧑‍🚀"],["spaceship","tàu vũ trụ","🛸"]]},{"name":"Shopping","emoji":"🛒","words":[["shop","cửa hàng","🏪"],["supermarket","siêu thị","🛒"],["basket","cái giỏ","🧺"],["cart","xe đẩy","🛒"],["money","tiền","💵"],["toy store","cửa hàng đồ chơi","🧸"],["bakery","tiệm bánh","🥐"],["clothes shop","cửa hàng quần áo","👚"]]},{"name":"Health","emoji":"🩺","words":[["doctor","bác sĩ","🧑‍⚕️"],["nurse","y tá","🧑‍⚕️"],["medicine","thuốc","💊"],["bandage","băng cá nhân","🩹"],["thermometer","nhiệt kế","🌡️"],["cough","ho","😷"],["sneeze","hắt hơi","🤧"],["healthy","khỏe mạnh","💪"]]},{"name":"Baby Things","emoji":"👶","words":[["baby","em bé","👶"],["bottle","bình sữa","🍼"],["diaper","tã","🧷"],["stroller","xe đẩy em bé","🛒"],["toy","đồ chơi","🧸"],["crib","nôi","🛏️"],["bib","yếm ăn","👕"],["rattle","xúc xắc","🪇"]]}];
@@ -1133,14 +1237,21 @@
       scoreLabel: document.getElementById('scoreLabel'), resultFish: document.getElementById('resultFish'),
       retryTestBtn: document.getElementById('retryTestBtn'), newTopicBtn: document.getElementById('newTopicBtn'),
       tankModal: document.getElementById('tankModal'), closeTankBtn: document.getElementById('closeTankBtn'),
-      tankFishLayer: document.getElementById('tankFishLayer'), tankEmpty: document.getElementById('tankEmpty'),
-      tankFishCount: document.getElementById('tankFishCount'), tankNote: document.getElementById('tankNote'),
+      fishTank: document.getElementById('fishTank'), tankFishLayer: document.getElementById('tankFishLayer'),
+      tankDecorLayer: document.getElementById('tankDecorLayer'), tankEmpty: document.getElementById('tankEmpty'),
+      tankFishCount: document.getElementById('tankFishCount'), tankCoinCount: document.getElementById('tankCoinCount'),
+      tankNote: document.getElementById('tankNote'), tankActionStatus: document.getElementById('tankActionStatus'),
+      openShopBtn: document.getElementById('openShopBtn'), shopModal: document.getElementById('shopModal'),
+      closeShopBtn: document.getElementById('closeShopBtn'), backToTankBtn: document.getElementById('backToTankBtn'),
+      shopCoinCount: document.getElementById('shopCoinCount'), tankShopGrid: document.getElementById('tankShopGrid'),
+      shopStatus: document.getElementById('shopStatus'),
       dataModal: document.getElementById('dataModal'), closeDataBtn: document.getElementById('closeDataBtn'),
       githubOwner: document.getElementById('githubOwner'), githubRepo: document.getElementById('githubRepo'),
       githubBranch: document.getElementById('githubBranch'), githubPath: document.getElementById('githubPath'),
       githubToken: document.getElementById('githubToken'), reloadDataBtn: document.getElementById('reloadDataBtn'),
       publishDataBtn: document.getElementById('publishDataBtn'), publishStatus: document.getElementById('publishStatus'),
-      dataFishCount: document.getElementById('dataFishCount'), dataCompletedCount: document.getElementById('dataCompletedCount'),
+      dataFishCount: document.getElementById('dataFishCount'), dataCoinCount: document.getElementById('dataCoinCount'),
+      dataCompletedCount: document.getElementById('dataCompletedCount'),
       mathFishEarned: document.getElementById('mathFishEarned'), mathEquation: document.getElementById('mathEquation'),
       mathAnswerGrid: document.getElementById('mathAnswerGrid'), mathFeedback: document.getElementById('mathFeedback'),
       mathQuestionCard: document.getElementById('mathQuestionCard'), mathQuestionKicker: document.getElementById('mathQuestionKicker'),
@@ -1161,13 +1272,25 @@
       currentTopic: null, lessonWords: [], lessonIndex: 0, timerStartedAt: 0, timerFrame: 0,
       quizQuestions: [], quizIndex: 0, score: 0, fish: [], answering: false,
       soundOn: true, voice: null, rewardEligible: true,
-      accumulatedFish: [], completedLessons: [], updatedAt: '', dataOrigin: 'default',
+      accumulatedFish: [], completedLessons: [], coins: 0, ownedTanks: ['classic'], selectedTank: 'classic',
+      updatedAt: '', dataOrigin: 'default',
       mathQuestion: null, mathAnswering: false, mathFish: [], mathAnswered: 0, mathCorrect: 0,
       mathWaitTimer: 0, mathTransitionTimer: 0, mathPhase: 'idle',
       letterOrder: [], letterIndex: 0
     };
 
     const FISH = ['🐟','🐠','🐡','🦈','🐬','🐳','🦐','🦀','🪼','🐙'];
+    const TANK_PRICE = 500;
+    const TANK_THEMES = [
+      { id: 'classic', name: 'Happy Garden', icon: '🏰', price: 0, description: 'Bright blue water with plants and a tiny castle.', decor: [['🌿','6%','31px','64px','-5deg'],['🏰','45%','31px','60px','0deg'],['🌱','84%','32px','55px','4deg']] },
+      { id: 'galaxy', name: 'Galaxy Tank', icon: '🪐', price: 500, description: 'Purple space water with aliens, planets, and stars.', decor: [['👽','8%','34px','54px','-4deg'],['🪐','47%','42px','55px','7deg'],['🚀','80%','38px','52px','-12deg']] },
+      { id: 'desert', name: 'Desert Tank', icon: '🌵', price: 500, description: 'Golden water with cactuses and desert treasures.', decor: [['🌵','6%','42px','61px','-3deg'],['🏜️','43%','35px','58px','0deg'],['🌵','83%','41px','54px','4deg']] },
+      { id: 'ocean', name: 'Deep Ocean', icon: '⚓', price: 500, description: 'Dark blue water with shipwrecks and deep-sea ruins.', decor: [['⚓','8%','35px','58px','-8deg'],['🚢','42%','35px','65px','8deg'],['🪸','83%','34px','55px','0deg']] },
+      { id: 'pirate', name: 'Pirate Cove', icon: '🏴‍☠️', price: 500, description: 'A pirate hideout with treasure and a captain flag.', decor: [['🏴‍☠️','6%','40px','59px','-4deg'],['🧰','45%','32px','57px','0deg'],['🛞','82%','34px','54px','9deg']] },
+      { id: 'spider', name: 'Spider Web', icon: '🕸️', price: 500, description: 'Mysterious purple water with webs and friendly spiders.', decor: [['🕸️','4%','185px','68px','0deg'],['🕷️','48%','36px','55px','7deg'],['🕸️','82%','150px','61px','0deg']] },
+      { id: 'zombie', name: 'Zombie Tank', icon: '🧟', price: 500, description: 'Glowing green water with spooky zombie decorations.', decor: [['🪦','7%','33px','58px','-5deg'],['🧟','44%','35px','61px','3deg'],['🦴','82%','34px','54px','-8deg']] }
+    ];
+    const TANK_IDS = new Set(TANK_THEMES.map(t => t.id));
     const TINTS = ['#fff3c4','#e6f2ff','#e8fff6','#ffe9f0','#f0ebff','#ffefe5'];
     const VIETNAMESE_LETTERS = [
       ['a','áo','👕'],['ă','ăn','😋'],['â','ấm','☕'],['b','bong bóng','🎈'],['c','con cá','🐟'],
@@ -1198,7 +1321,7 @@
     function isCompleted(name) { return state.completedLessons.includes(name); }
     function defaultData() {
       try { return JSON.parse(document.getElementById('wordfish-default-data').textContent); }
-      catch { return { version: 1, accumulatedFishCount: 0, accumulatedFish: [], completedLessons: [], updatedAt: '' }; }
+      catch { return { version: 2, accumulatedFishCount: 0, accumulatedFish: [], completedLessons: [], coins: 0, ownedTanks: ['classic'], selectedTank: 'classic', updatedAt: '' }; }
     }
     function normalizeData(data) {
       const validTopics = new Set(TOPICS.map(t => t.name));
@@ -1207,10 +1330,14 @@
       while (fish.length < requestedCount) fish.push(FISH[fish.length % FISH.length]);
       if (fish.length > requestedCount && Number.isFinite(Number(data?.accumulatedFishCount))) fish.length = requestedCount;
       const lessons = Array.isArray(data?.completedLessons) ? [...new Set(data.completedLessons.filter(x => validTopics.has(x)))] : [];
-      return { version: 1, accumulatedFishCount: fish.length, accumulatedFish: fish, completedLessons: lessons, updatedAt: typeof data?.updatedAt === 'string' ? data.updatedAt : '' };
+      const coins = Math.max(0, Math.min(9999999, Number.parseInt(data?.coins, 10) || 0));
+      const ownedTanks = Array.isArray(data?.ownedTanks) ? [...new Set(data.ownedTanks.filter(id => TANK_IDS.has(id)))] : ['classic'];
+      if (!ownedTanks.includes('classic')) ownedTanks.unshift('classic');
+      const selectedTank = ownedTanks.includes(data?.selectedTank) ? data.selectedTank : 'classic';
+      return { version: 2, accumulatedFishCount: fish.length, accumulatedFish: fish, completedLessons: lessons, coins, ownedTanks, selectedTank, updatedAt: typeof data?.updatedAt === 'string' ? data.updatedAt : '' };
     }
     function dataTimestamp(data) { const n = Date.parse(data?.updatedAt || ''); return Number.isFinite(n) ? n : 0; }
-    function currentData() { return { version: 1, accumulatedFishCount: state.accumulatedFish.length, accumulatedFish: [...state.accumulatedFish], completedLessons: [...state.completedLessons], updatedAt: state.updatedAt || new Date().toISOString() }; }
+    function currentData() { return { version: 2, accumulatedFishCount: state.accumulatedFish.length, accumulatedFish: [...state.accumulatedFish], completedLessons: [...state.completedLessons], coins: state.coins, ownedTanks: [...state.ownedTanks], selectedTank: state.selectedTank, updatedAt: state.updatedAt || new Date().toISOString() }; }
 
     let audioCtx = null;
     function ensureAudio() {
@@ -1233,6 +1360,8 @@
       correct() { tone(523,.1,'sine',0,.055); tone(659,.1,'sine',.08,.055); tone(784,.16,'sine',.16,.06); },
       wrong() { tone(220,.12,'sawtooth',0,.035); tone(170,.18,'sawtooth',.1,.03); },
       fish() { tone(880,.08,'sine',0,.045); tone(1175,.14,'triangle',.07,.05); },
+      coin() { tone(988,.07,'sine',0,.045); tone(1319,.1,'triangle',.06,.05); },
+      buy() { [523,659,784].forEach((f,i) => tone(f,.14,'triangle',i*.07,.05)); },
       splash() { tone(640,.07,'sine',0,.04); tone(420,.13,'triangle',.04,.04); },
       finish() { [523,659,784,1047].forEach((f,i) => tone(f,.18,'sine',i*.09,.05)); }
     };
@@ -1264,9 +1393,10 @@
     function applyData(data, origin = 'local') {
       const clean = normalizeData(data);
       state.accumulatedFish = clean.accumulatedFish; state.completedLessons = clean.completedLessons;
+      state.coins = clean.coins; state.ownedTanks = clean.ownedTanks; state.selectedTank = clean.selectedTank;
       state.updatedAt = clean.updatedAt; state.dataOrigin = origin;
       storageSet(STORAGE_PROGRESS, JSON.stringify(clean));
-      updateProgressUI(); renderTopics(els.topicSearch.value); renderFishTank();
+      updateProgressUI(); renderTopics(els.topicSearch.value); renderFishTank(); renderTankShop();
     }
     function saveProgress() {
       state.updatedAt = new Date().toISOString();
@@ -1336,20 +1466,86 @@
     function updateProgressUI() {
       const fishCount = state.accumulatedFish.length, lessonCount = state.completedLessons.length;
       els.totalFishTop.textContent = fishCount; els.homeFishCount.textContent = fishCount; els.completedCount.textContent = lessonCount;
-      els.tankFishCount.textContent = fishCount; els.dataFishCount.textContent = fishCount; els.dataCompletedCount.textContent = lessonCount;
+      els.tankFishCount.textContent = fishCount; els.tankCoinCount.textContent = state.coins; els.shopCoinCount.textContent = state.coins;
+      els.dataFishCount.textContent = fishCount; els.dataCoinCount.textContent = state.coins; els.dataCompletedCount.textContent = lessonCount;
+    }
+    function setTankStatus(message, type = '') {
+      els.tankActionStatus.textContent = message;
+      els.tankActionStatus.className = `tank-action-status ${type}`.trim();
+    }
+    function setShopStatus(message, type = '') {
+      els.shopStatus.textContent = message;
+      els.shopStatus.className = `shop-status ${type}`.trim();
+    }
+    function renderTankTheme() {
+      const theme = TANK_THEMES.find(item => item.id === state.selectedTank) || TANK_THEMES[0];
+      els.fishTank.className = `fish-tank theme-${theme.id}`;
+      els.fishTank.setAttribute('aria-label', `${theme.name}. Animated fish tank. Tap a fish to sell it for 5 coins.`);
+      els.tankDecorLayer.innerHTML = theme.decor.map(([emoji,left,bottom,size,rotate]) =>
+        `<span class="tank-decor-item" style="--left:${left};--bottom:${bottom};--decor-size:${size};--rotate:${rotate}">${emoji}</span>`
+      ).join('');
     }
     function renderFishTank() {
-      els.tankFishLayer.innerHTML = ''; const visible = state.accumulatedFish.slice(-70);
+      renderTankTheme();
+      els.tankFishLayer.innerHTML = '';
+      const visible = state.accumulatedFish.slice(-70);
+      const startIndex = state.accumulatedFish.length - visible.length;
       visible.forEach((fish, i) => {
-        const el = document.createElement('span'); el.className = `tank-fish${i % 3 === 1 ? ' reverse' : ''}`; el.textContent = fish;
+        const el = document.createElement('button');
+        el.type = 'button'; el.className = `tank-fish${i % 3 === 1 ? ' reverse' : ''}`; el.textContent = fish;
+        el.dataset.fishIndex = String(startIndex + i);
+        el.setAttribute('aria-label', `Sell this fish for 5 coins`); el.title = 'Tap to sell for 5 coins';
+        el.style.border = '0'; el.style.padding = '0'; el.style.background = 'transparent';
         el.style.setProperty('--top', `${8 + ((i * 17 + i * i * 3) % 73)}%`);
         el.style.setProperty('--size', `${30 + ((i * 7) % 20)}px`);
         el.style.setProperty('--duration', `${8 + ((i * 11) % 9)}s`);
         el.style.setProperty('--delay', `${-((i * 1.37) % 14)}s`);
+        el.addEventListener('click', event => sellFish(Number(el.dataset.fishIndex), el, event));
         els.tankFishLayer.appendChild(el);
       });
       els.tankEmpty.classList.toggle('hidden', visible.length > 0);
-      els.tankNote.textContent = state.accumulatedFish.length > visible.length ? `Showing 70 of ${state.accumulatedFish.length} fish. All fish are safely counted in data.json.` : 'English lessons reward fish once. Math Ocean rewards unlimited fish.';
+      els.tankNote.textContent = state.accumulatedFish.length > visible.length ? `Showing 70 of ${state.accumulatedFish.length} fish. Tap a visible fish to sell it; every fish is still counted in data.json.` : 'Tap any swimming fish to sell it for 5 coins. Math Ocean can earn unlimited new fish.';
+      updateProgressUI();
+    }
+    function sellFish(index, element, event) {
+      if (!Number.isInteger(index) || index < 0 || index >= state.accumulatedFish.length || element.classList.contains('selling')) return;
+      element.classList.add('selling'); element.disabled = true;
+      const rect = element.getBoundingClientRect();
+      const coin = document.createElement('span'); coin.className = 'sale-coin'; coin.textContent = '🪙';
+      coin.style.left = `${event?.clientX || rect.left + rect.width / 2}px`; coin.style.top = `${event?.clientY || rect.top + rect.height / 2}px`;
+      document.body.appendChild(coin); setTimeout(() => coin.remove(), 750); sfx.coin();
+      setTimeout(() => {
+        if (index >= state.accumulatedFish.length) return;
+        state.accumulatedFish.splice(index, 1); state.coins += 5;
+        saveProgress(); renderFishTank(); renderTankShop();
+        setTankStatus('Fish sold! You earned 5 coins. 🪙', 'good');
+      }, 330);
+    }
+    function renderTankShop() {
+      els.shopCoinCount.textContent = state.coins;
+      els.tankShopGrid.innerHTML = '';
+      TANK_THEMES.forEach(theme => {
+        const owned = state.ownedTanks.includes(theme.id), selected = state.selectedTank === theme.id;
+        const card = document.createElement('article'); card.className = `shop-card${owned ? ' owned' : ''}${selected ? ' selected' : ''}`;
+        const previewDecor = theme.decor.slice(0,3).map(item => `<span>${item[0]}</span>`).join('');
+        const buttonLabel = selected ? '✓ Using this tank' : owned ? 'Use this tank' : `Buy for ${theme.price} coins`;
+        card.innerHTML = `<div class="tank-theme-preview theme-${theme.id}"><div class="preview-decor">${previewDecor}</div></div><h3>${theme.icon} ${theme.name}</h3><p>${theme.description}</p><div class="shop-price"><span>${theme.price === 0 ? 'Free' : `🪙 ${theme.price}`}</span><small>${owned ? 'Owned' : 'Locked'}</small></div><button class="shop-buy-btn${owned ? ' owned' : ''}${selected ? ' selected' : ''}" type="button" ${selected ? 'disabled' : ''}>${buttonLabel}</button>`;
+        card.querySelector('button').addEventListener('click', () => buyOrSelectTank(theme.id));
+        els.tankShopGrid.appendChild(card);
+      });
+    }
+    function buyOrSelectTank(themeId) {
+      const theme = TANK_THEMES.find(item => item.id === themeId); if (!theme) return;
+      if (state.ownedTanks.includes(theme.id)) {
+        state.selectedTank = theme.id; saveProgress(); renderTankShop(); renderFishTank(); sfx.tap();
+        setShopStatus(`${theme.name} is now your active tank!`, 'good'); return;
+      }
+      if (state.coins < theme.price) {
+        sfx.wrong(); setShopStatus(`You need ${theme.price - state.coins} more coins to buy ${theme.name}.`, 'bad'); return;
+      }
+      state.coins -= theme.price; state.ownedTanks.push(theme.id); state.selectedTank = theme.id;
+      saveProgress(); renderTankShop(); renderFishTank(); sfx.buy(); burstConfetti(34);
+      setShopStatus(`${theme.name} purchased and selected! 🎉`, 'good');
     }
 
     function openModal(modal) { sfx.tap(); modal.classList.add('open'); document.body.style.overflow = 'hidden'; }
@@ -1694,13 +1890,17 @@
     els.retryTestBtn.addEventListener('click', startQuiz); els.newTopicBtn.addEventListener('click', () => { sfx.tap(); showScreen('home'); });
     [els.tankBtn, els.homeTankBtn].forEach(btn => btn.addEventListener('click', () => { renderFishTank(); openModal(els.tankModal); }));
     els.closeTankBtn.addEventListener('click', () => closeModal(els.tankModal)); els.tankModal.addEventListener('click', e => { if (e.target === els.tankModal) closeModal(els.tankModal); });
+    els.openShopBtn.addEventListener('click', () => { closeModal(els.tankModal); renderTankShop(); setShopStatus('Sell fish in your tank to earn coins.'); openModal(els.shopModal); });
+    els.closeShopBtn.addEventListener('click', () => closeModal(els.shopModal));
+    els.shopModal.addEventListener('click', e => { if (e.target === els.shopModal) closeModal(els.shopModal); });
+    els.backToTankBtn.addEventListener('click', () => { closeModal(els.shopModal); renderFishTank(); setTankStatus('Tap a fish to sell it for 5 coins. 🪙'); openModal(els.tankModal); });
     els.dataBtn.addEventListener('click', () => { loadGithubSettings(); setPublishStatus('Ready.'); openModal(els.dataModal); });
     els.closeDataBtn.addEventListener('click', () => closeModal(els.dataModal)); els.dataModal.addEventListener('click', e => { if (e.target === els.dataModal) closeModal(els.dataModal); });
     [els.githubOwner, els.githubRepo, els.githubBranch, els.githubPath].forEach(input => input.addEventListener('change', saveGithubSettings));
     els.githubToken.addEventListener('input', () => storageSet(STORAGE_TOKEN, els.githubToken.value.trim()));
     els.publishDataBtn.addEventListener('click', publishDataJson);
     els.reloadDataBtn.addEventListener('click', async () => { sfx.tap(); setPublishStatus('Reloading data.json…'); await loadProgress(true); setPublishStatus('Reloaded data.json.', 'good'); sfx.finish(); });
-    document.addEventListener('keydown', e => { if (e.key === 'Escape') { if (els.tankModal.classList.contains('open')) closeModal(els.tankModal); if (els.dataModal.classList.contains('open')) closeModal(els.dataModal); } });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') { if (els.tankModal.classList.contains('open')) closeModal(els.tankModal); if (els.shopModal.classList.contains('open')) closeModal(els.shopModal); if (els.dataModal.classList.contains('open')) closeModal(els.dataModal); } });
     document.addEventListener('visibilitychange', () => {
       if (document.hidden) { cancelAnimationFrame(state.timerFrame); cancelMathTimers(); if ('speechSynthesis' in window) speechSynthesis.cancel(); }
       else if (screens.lesson.classList.contains('active') && !els.lessonCardView.classList.contains('hidden')) { startCardTimer(); speak(state.lessonWords[state.lessonIndex][0]); }
@@ -1710,7 +1910,7 @@
       }
     });
 
-    async function initWordFish() { loadGithubSettings(); applyData(defaultData(), 'default'); await loadProgress(false); renderTopics(); updateProgressUI(); renderFishTank(); }
+    async function initWordFish() { loadGithubSettings(); applyData(defaultData(), 'default'); await loadProgress(false); renderTopics(); updateProgressUI(); renderFishTank(); renderTankShop(); }
     initWordFish();
   </script>
 </body>
