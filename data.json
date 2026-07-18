@@ -1,7 +1,18 @@
 {
   "version": 2,
-  "accumulatedFishCount": 0,
-  "accumulatedFish": [],
+  "accumulatedFishCount": 10,
+  "accumulatedFish": [
+    "🐠",
+    "🦈",
+    "🐙",
+    "🐡",
+    "🪼",
+    "🦐",
+    "🦀",
+    "🐬",
+    "🐬",
+    "🐟"
+  ],
   "completedLessons": [
     "Pets",
     "Colors"
@@ -11,5 +22,5 @@
     "classic"
   ],
   "selectedTank": "classic",
-  "updatedAt": "2026-07-17T14:29:46.022Z"
+  "updatedAt": "2026-07-18T12:32:56.034Z"
 }
