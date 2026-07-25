@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "accumulatedFishCount": 10,
+  "accumulatedFishCount": 18,
   "accumulatedFish": [
     "🐠",
     "🦈",
@@ -11,16 +11,25 @@
     "🦀",
     "🐬",
     "🐬",
+    "🐟",
+    "🐳",
+    "🐡",
+    "🐟",
+    "🐬",
+    "🦀",
+    "🐡",
+    "🦐",
     "🐟"
   ],
   "completedLessons": [
     "Pets",
-    "Colors"
+    "Colors",
+    "Family"
   ],
   "coins": 220,
   "ownedTanks": [
     "classic"
   ],
   "selectedTank": "classic",
-  "updatedAt": "2026-07-18T12:32:56.034Z"
+  "updatedAt": "2026-07-25T09:25:18.800Z"
 }
