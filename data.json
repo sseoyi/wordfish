@@ -1,35 +1,49 @@
 {
   "version": 2,
-  "accumulatedFishCount": 18,
+  "accumulatedFishCount": 30,
   "accumulatedFish": [
     "🐠",
-    "🦈",
-    "🐙",
     "🐡",
     "🪼",
-    "🦐",
-    "🦀",
     "🐬",
     "🐬",
     "🐟",
+    "🐡",
+    "🐟",
+    "🐬",
+    "🐡",
+    "🦐",
+    "🪼",
+    "🐬",
+    "🦐",
+    "🦈",
+    "🐠",
+    "🦐",
+    "🦀",
+    "🦀",
+    "🐳",
+    "🪼",
     "🐳",
     "🐡",
+    "🪼",
+    "🦈",
+    "🐳",
     "🐟",
-    "🐬",
-    "🦀",
-    "🐡",
-    "🦐",
-    "🐟"
+    "🐙",
+    "🦈",
+    "🦀"
   ],
   "completedLessons": [
     "Pets",
     "Colors",
-    "Family"
+    "Family",
+    "Shopping",
+    "Nature"
   ],
-  "coins": 220,
+  "coins": 280,
   "ownedTanks": [
     "classic"
   ],
   "selectedTank": "classic",
-  "updatedAt": "2026-07-25T09:25:18.800Z"
+  "updatedAt": "2026-07-26T07:11:00.807Z"
 }
