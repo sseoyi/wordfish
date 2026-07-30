@@ -1,36 +1,8 @@
 {
   "version": 2,
-  "accumulatedFishCount": 29,
+  "accumulatedFishCount": 1,
   "accumulatedFish": [
-    "🐠",
-    "🐡",
-    "🐡",
-    "🦐",
-    "🐠",
-    "🦐",
-    "🐳",
-    "🪼",
-    "🐳",
-    "🐡",
-    "🪼",
-    "🐟",
-    "🐙",
-    "🐬",
-    "🪼",
-    "🦀",
-    "🐬",
-    "🐡",
-    "🐟",
-    "🐟",
-    "🐠",
-    "🦐",
-    "🦀",
-    "🐠",
-    "🐙",
-    "🐠",
-    "🐳",
-    "🐳",
-    "🐡"
+    "🐠"
   ],
   "completedLessons": [
     "Pets",
@@ -41,10 +13,11 @@
     "Town",
     "Birthday"
   ],
-  "coins": 405,
+  "coins": 45,
   "ownedTanks": [
-    "classic"
+    "classic",
+    "ocean"
   ],
-  "selectedTank": "classic",
-  "updatedAt": "2026-07-30T15:09:21.782Z"
+  "selectedTank": "ocean",
+  "updatedAt": "2026-07-30T15:10:48.106Z"
 }
