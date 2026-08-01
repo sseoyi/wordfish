@@ -1,36 +1,27 @@
 {
   "version": 2,
-  "accumulatedFishCount": 29,
+  "accumulatedFishCount": 20,
   "accumulatedFish": [
     "🐠",
-    "🐡",
-    "🐠",
     "🦀",
-    "🐳",
-    "🐟",
-    "🦀",
-    "🦐",
     "🐠",
     "🐬",
-    "🐬",
-    "🦈",
-    "🐟",
     "🦐",
     "🐟",
-    "🦈",
     "🐟",
     "🦈",
     "🦈",
     "🦐",
     "🐳",
-    "🐳",
-    "🐠",
-    "🐟",
-    "🦈",
     "🐠",
     "🪼",
-    "🐙",
-    "🐬"
+    "🐟",
+    "🦈",
+    "🐠",
+    "🦈",
+    "🪼",
+    "🐡",
+    "🐳"
   ],
   "completedLessons": [
     "Pets",
@@ -43,11 +34,11 @@
     "Sweets",
     "Farm Animals"
   ],
-  "coins": 45,
+  "coins": 130,
   "ownedTanks": [
     "classic",
     "ocean"
   ],
   "selectedTank": "ocean",
-  "updatedAt": "2026-08-01T05:29:38.744Z"
+  "updatedAt": "2026-08-01T13:51:01.663Z"
 }
